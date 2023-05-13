@@ -28,6 +28,8 @@ jobs:
       # ビルドする
       - name: Build
         run: npm run build
+        env:
+          NODE_ENV: 'production'
 
       # GitHub Pages にデプロイする
       - name: Deploy
