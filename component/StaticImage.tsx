@@ -1,6 +1,6 @@
 import React from 'react'
 const isProd = process.env.NODE_ENV === 'production'
-const prefixPath = !isProd ? '/portfolio' : ''
+const prefixPath = !isProd ? '' : ''
 
 function withPrefix(path: string) {
   return `${prefixPath}${path}`

@@ -1,3 +1,5 @@
+import StaticImage from '@/component/StaticImage'
+
 export default function Home() {
   return (
     <>
@@ -13,8 +15,13 @@ export default function Home() {
           <button className="border border-gray-300 rounded-3xl px-24 py-4 text-xl hover:bg-gray-100 transition-colors duration-500">
             作ったサービス
           </button>
-          <button className="border border-gray-300 rounded-3xl px-24 py-4 text-xl hover:bg-gray-100 transition-colors duration-500">
-            Zenn
+          <button className="border border-gray-300 rounded-3xl hover:bg-gray-100 transition-colors duration-500">
+            <StaticImage
+              src={'/zenn-logo.svg'}
+              alt={'zenn'}
+              width={16}
+              height={16}
+            ></StaticImage>
           </button>
         </div>
       </div>
