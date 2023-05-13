@@ -3,8 +3,8 @@ import { SnsButton } from '@/component/SnsButton'
 
 export default function Home() {
   return (
-    <>
-      <div className=" w-full h-12 border-b border-gray-300"></div>
+    <div>
+      <div className="bg-white w-full h-12 border-b border-gray-300"></div>
       <div className="flex justify-center items-center">
         <div className="flex flex-col justify-center gap-4 w-80">
           <div className="flex justify-center text-6xl font-mono font-extrabold text-gray-700 p-12">
@@ -19,6 +19,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
