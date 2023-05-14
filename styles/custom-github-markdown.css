@@ -1,0 +1,27 @@
+.markdown-body {
+  background-color: initial;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  border-bottom: none;
+  margin: 0;
+}
+
+ul {
+  list-style: disc;
+  list-style-type: disc;
+  margin: 0;
+  padding: 0;
+}
+
+ul ul {
+  list-style: circle;
+  list-style-type: circle;
+  margin: 0;
+  padding: 0;
+}
