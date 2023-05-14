@@ -1,10 +1,15 @@
+import fs from 'fs'
 import { Header } from '@/components/Header'
 import ReactMarkdown from 'react-markdown'
+import { GetStaticProps } from 'next'
 
-export default function Works() {
+export default function Works(props: any) {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header />
+      {props.slugs.map((slug: any, index: any) => {
+        return <div key={index}>{slug}</div>
+      })}
       <div className="flex flex-col justify-center items-center">
         <div className="flex justify-center text-4xl font-extrabold text-gray-700 py-12 w-full">
           Works
@@ -17,6 +22,20 @@ export default function Works() {
       </div>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const getAllSlug = () => {
+    return fs.readdirSync('contents/works').map((fileName) => {
+      return fileName.replace(/\.md$/, '')
+    })
+  }
+
+  return {
+    props: {
+      slugs: getAllSlug(),
+    },
+  }
 }
 
 const text = `
