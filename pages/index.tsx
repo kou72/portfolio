@@ -10,8 +10,8 @@ export default function Home() {
           Kou S
         </div>
         <div className="flex flex-col justify-center gap-4 w-80">
-          <SimpleButton>業務・活動の履歴</SimpleButton>
-          <SimpleButton>作ったサービス・教材</SimpleButton>
+          <SimpleButton text={'業務・活動の履歴'} href={'/works'} />
+          <SimpleButton text={'作ったサービス・教材'} href={'/products'} />
           <div className="flex justify-evenly">
             <SnsButton src={'/github-logo.svg'} alt={'github'}></SnsButton>
             <SnsButton src={'/zenn-logo.svg'} alt={'zenn'}></SnsButton>
