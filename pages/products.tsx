@@ -4,7 +4,7 @@ export default function Home() {
       <div className="bg-white w-full h-12 border-b border-gray-300"></div>
       <div className="flex flex-col justify-center items-center">
         <div className="flex justify-center text-4xl font-mono font-extrabold text-gray-700 py-12 w-full">
-          業務・活動の履歴
+          作ったサービス・教材
         </div>
       </div>
     </div>
