@@ -1,7 +1,7 @@
 import { Header } from '@/components/Header'
 import ReactMarkdown from 'react-markdown'
 
-export default function Home() {
+export default function Works() {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header />
