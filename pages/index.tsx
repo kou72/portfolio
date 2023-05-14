@@ -1,5 +1,5 @@
-import { SimpleButton } from '@/component/SimpleButton'
-import { SnsButton } from '@/component/SnsButton'
+import { SimpleButton } from '../components/SimpleButton'
+import { SnsButton } from '../components/SnsButton'
 
 export default function Home() {
   return (
