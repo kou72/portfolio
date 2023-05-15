@@ -7,8 +7,8 @@ export default function Works(props: any) {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header />
-      {props.slugs.map((slug: any, index: any) => {
-        return <div key={index}>{slug}</div>
+      {props.markdowns.map((markdown: any, index: any) => {
+        return <div key={index}>{markdown}</div>
       })}
       <div className="flex flex-col justify-center items-center">
         <div className="flex justify-center text-4xl font-extrabold text-gray-700 py-12 w-full">
@@ -31,9 +31,22 @@ export const getStaticProps: GetStaticProps = () => {
     })
   }
 
+  const getMarkdown = (filePath: string) => {
+    const fileContents = fs.readFileSync(filePath, 'utf8')
+    return fileContents
+  }
+
+  const getMarkdownFiles = () => {
+    const slugs = getAllSlug()
+    const markdowns = slugs.map((slug) =>
+      getMarkdown(`contents/works/${slug}.md`)
+    )
+    return markdowns
+  }
+
   return {
     props: {
-      slugs: getAllSlug(),
+      markdowns: getMarkdownFiles(),
     },
   }
 }
