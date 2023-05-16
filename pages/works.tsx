@@ -37,25 +37,13 @@ export default function Works(props: PropsType) {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const getAllSlug = () => {
-    return fs.readdirSync('contents/works').map((fileName) => {
-      return fileName.replace(/\.md$/, '')
-    })
-  }
-
-  const getMarkdown = (filePath: string) => {
-    const fileContents = fs.readFileSync(filePath, 'utf8')
-    return fileContents
-  }
-
   const getMarkdownFiles = () => {
-    const slugs = getAllSlug()
-    const markdowns = slugs.map((slug) =>
-      getMarkdown(`contents/works/${slug}.md`)
+    const files = fs.readdirSync('contents/works')
+    const markdowns = files.map((file) =>
+      fs.readFileSync(`contents/works/${file}`, 'utf8')
     )
     return markdowns
   }
-
   const workCardPath = 'components/WorkCard.tsx'
   const workCardCode = fs.readFileSync(workCardPath, 'utf8')
 
