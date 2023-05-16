@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { Header } from '@/components/Header'
-import ReactMarkdown from 'react-markdown'
 import { GetStaticProps } from 'next'
+import { WorkCard } from '@/components/WorkCard'
 
 export default function Works(props: any) {
   return (
@@ -12,15 +12,9 @@ export default function Works(props: any) {
           Works
         </div>
         <div className="flex flex-col gap-4 w-80">
-          {props.markdowns.map((markdown: any, index: any) => {
-            return (
-              <div className="bg-white w-full rounded-3xl p-4" key={index}>
-                <ReactMarkdown className="markdown-body">
-                  {markdown}
-                </ReactMarkdown>
-              </div>
-            )
-          })}
+          {props.markdowns.map((markdown: any, index: number) => (
+            <WorkCard markdown={markdown} key={index} />
+          ))}
         </div>
       </div>
     </div>
