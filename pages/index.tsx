@@ -2,13 +2,14 @@ import fs from 'fs'
 import { Header } from '@/components/Header'
 import { SimpleButton } from '../components/SimpleButton'
 import { SnsButton } from '../components/SnsButton'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { CodeBlock } from '@/components/CodeBloc'
 import { GetStaticProps } from 'next'
 
-export default function Home(props: any) {
-  console.log(props.simpleButtonCode)
+interface PropsType {
+  simpleButtonCode: string
+}
 
+export default function Home(props: PropsType) {
   return (
     <div className="bg-blue-100 min-h-screen">
       <Header />
@@ -19,10 +20,8 @@ export default function Home(props: any) {
         <div className="flex flex-col justify-center gap-4 w-80">
           <SimpleButton text={'業務・活動の履歴'} href={'/works'} />
           <SimpleButton text={'作ったサービス・教材'} href={'/products'} />
-          <SyntaxHighlighter language="javascript" style={oneDark}>
-            {props.simpleButtonCode}
-          </SyntaxHighlighter>
-          <div className="flex justify-evenly">
+          <CodeBlock code={props.simpleButtonCode} />
+          <div className="flex justify-evenly mb-4">
             <SnsButton src={'/github-logo.svg'} alt={'github'} />
             <SnsButton src={'/zenn-logo.svg'} alt={'zenn'} />
             <SnsButton src={'/twitter-logo.svg'} alt={'twitter'} />
