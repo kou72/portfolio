@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { Header } from '@/components/Header'
-import { SimpleButton } from '../components/SimpleButton'
-import { SnsButton } from '../components/SnsButton'
+import { SimpleButton } from '@/components/SimpleButton'
+import { SnsButton } from '@/components/SnsButton'
 import { CodeBlock } from '@/components/CodeBloc'
 import { GetStaticProps } from 'next'
 
