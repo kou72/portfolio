@@ -6,7 +6,10 @@ import { CodeBlock } from '@/components/CodeBloc'
 import { GetStaticProps } from 'next'
 
 interface PropsType {
+  simpleButtonPath: string
   simpleButtonCode: string
+  snsButtonPath: string
+  snsButtonCode: string
 }
 
 export default function Home(props: PropsType) {
@@ -17,15 +20,19 @@ export default function Home(props: PropsType) {
         <div className="flex justify-center text-6xl font-mono font-extrabold text-gray-700 py-12 w-full">
           Kou S
         </div>
-        <div className="flex flex-col justify-center gap-4 w-80">
+        <div className="flex flex-col justify-center gap-4 w-80 m-4">
           <SimpleButton text={'業務・活動の履歴'} href={'/works'} />
           <SimpleButton text={'作ったサービス・教材'} href={'/products'} />
-          <CodeBlock code={props.simpleButtonCode} />
-          <div className="flex justify-evenly mb-4">
+          <CodeBlock
+            path={props.simpleButtonPath}
+            code={props.simpleButtonCode}
+          />
+          <div className="flex justify-evenly">
             <SnsButton src={'/github-logo.svg'} alt={'github'} />
             <SnsButton src={'/zenn-logo.svg'} alt={'zenn'} />
             <SnsButton src={'/twitter-logo.svg'} alt={'twitter'} />
           </div>
+          <CodeBlock path={props.snsButtonPath} code={props.simpleButtonCode} />
         </div>
       </div>
     </div>
@@ -33,13 +40,16 @@ export default function Home(props: PropsType) {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const simpleButtonCode = fs.readFileSync(
-    'components/SimpleButton.tsx',
-    'utf8'
-  )
+  const simpleButtonPath = 'components/SimpleButton.tsx'
+  const simpleButtonCode = fs.readFileSync(simpleButtonPath, 'utf8')
+  const snsButtonPath = 'components/SnsButton.tsx'
+  const snsButtonCode = fs.readFileSync(snsButtonPath, 'utf8')
   return {
     props: {
+      simpleButtonPath: simpleButtonPath,
       simpleButtonCode: simpleButtonCode,
+      snsButtonPath: snsButtonPath,
+      snsButtonCode: snsButtonCode,
     },
   }
 }
