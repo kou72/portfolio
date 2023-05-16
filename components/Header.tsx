@@ -6,22 +6,22 @@ export const Header = () => {
   return (
     <div className="bg-white w-full flex justify-center h-12 border-b border-gray-300">
       <div className="w-80">
-        <Link href="/">
-          <div className="h-full flex justify-between items-center">
+        <div className="h-full flex justify-between items-center">
+          <Link href="/">
             <button className="p-1 rounded-xl hover:bg-gray-300">
               <HomeIcon />
             </button>
-            <button
-              className={
-                'rounded-xl p-1 hover:bg-gray-300' +
-                (codeView ? ' bg-gray-300' : '')
-              }
-              onClick={toggleCodeView}
-            >
-              <CodeIcon />
-            </button>
-          </div>
-        </Link>
+          </Link>
+          <button
+            className={
+              'rounded-xl p-1 hover:bg-gray-300' +
+              (codeView ? ' bg-gray-300' : '')
+            }
+            onClick={toggleCodeView}
+          >
+            <CodeIcon />
+          </button>
+        </div>
       </div>
     </div>
   )
