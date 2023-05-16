@@ -22,11 +22,11 @@ export default function Home(props: PropsType) {
         </div>
         <div className="flex flex-col justify-center gap-4 w-80 m-4">
           <SimpleButton text={'業務・活動の履歴'} href={'/works'} />
-          <SimpleButton text={'作ったサービス・教材'} href={'/products'} />
           <CodeBlock
             path={props.simpleButtonPath}
             code={props.simpleButtonCode}
           />
+          <SimpleButton text={'作ったサービス・教材'} href={'/products'} />
           <div className="flex justify-evenly">
             <SnsButton src={'/github-logo.svg'} alt={'github'} />
             <SnsButton src={'/zenn-logo.svg'} alt={'zenn'} />
