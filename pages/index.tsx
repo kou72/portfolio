@@ -32,7 +32,7 @@ export default function Home(props: PropsType) {
             <SnsButton src={'/zenn-logo.svg'} alt={'zenn'} />
             <SnsButton src={'/twitter-logo.svg'} alt={'twitter'} />
           </div>
-          <CodeBlock path={props.snsButtonPath} code={props.simpleButtonCode} />
+          <CodeBlock path={props.snsButtonPath} code={props.snsButtonCode} />
         </div>
       </div>
     </div>
