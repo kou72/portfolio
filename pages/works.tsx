@@ -19,7 +19,7 @@ export default function Works(props: PropsType) {
           Works
         </div>
         {props.markdowns.map((markdown, index) => (
-          <div className="w-80 mb-6" key={index}>
+          <div className="flex flex-col gap-4 w-80 mb-6" key={index}>
             <WorkCard markdown={markdown} />
             {index === 0 && (
               <CodeBlock path={props.workCardPath} code={props.workCardCode} />

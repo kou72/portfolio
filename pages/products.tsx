@@ -1,8 +1,10 @@
+import fs from 'fs'
 import { GetStaticProps } from 'next'
 import axios from 'axios'
 import { JSDOM } from 'jsdom'
 import { Header } from '@/components/Header'
 import { ProductCard } from '@/components/ProductCard'
+import { CodeBlock } from '@/components/CodeBloc'
 
 const productsUrl = [
   'https://meet-time.skapp.dev/',
@@ -11,10 +13,13 @@ const productsUrl = [
 
 interface PropsType {
   products: {
+    url: string
     ogTitle: string
     ogDescription: string
     ogImage: string
   }[]
+  productCardPath: string
+  productCardCode: string
 }
 
 export default function Products(props: PropsType) {
@@ -26,12 +31,19 @@ export default function Products(props: PropsType) {
           Products
         </div>
         {props.products.map((product, index) => (
-          <div className="w-80 mb-6" key={index}>
+          <div className="flex flex-col gap-4 w-80 mb-6" key={index}>
             <ProductCard
+              url={product.url}
               ogTitle={product.ogTitle}
               ogDescription={product.ogDescription}
               ogImage={product.ogImage}
             />
+            {index === 0 && (
+              <CodeBlock
+                path={props.productCardPath}
+                code={props.productCardCode}
+              />
+            )}
           </div>
         ))}
       </div>
@@ -56,13 +68,17 @@ export const getStaticProps: GetStaticProps = async () => {
       const ogImage = dom.window.document
         .querySelector('meta[property="og:image"]')
         ?.getAttribute('content')
-      return { ogTitle, ogDescription, ogImage }
+      return { url, ogTitle, ogDescription, ogImage }
     })
   )
+  const productCardPath = 'components/ProductCard.tsx'
+  const productCardCode = fs.readFileSync(productCardPath, 'utf8')
 
   return {
     props: {
       products: products,
+      productCardPath: productCardPath,
+      productCardCode: productCardCode,
     },
   }
 }
