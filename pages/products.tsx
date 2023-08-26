@@ -1,3 +1,6 @@
+import { GetStaticProps } from 'next'
+import axios from 'axios'
+import { JSDOM } from 'jsdom'
 import { Header } from '@/components/Header'
 
 export default function Products() {
@@ -11,4 +14,21 @@ export default function Products() {
       </div>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const url = 'https://meet-time.skapp.dev/'
+  const encodedUri = encodeURI(url)
+  const headers = { 'User-Agent': 'bot' }
+  const response = await axios.get(encodedUri, { headers })
+  const html = response.data
+  const dom = new JSDOM(html)
+  const ogTitleContent = dom.window.document
+    .querySelector('meta[property="og:title"]')
+    ?.getAttribute('content')
+  console.log(ogTitleContent)
+
+  return {
+    props: {},
+  }
 }
