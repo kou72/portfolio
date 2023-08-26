@@ -28,9 +28,13 @@ export default function Home(props: PropsType) {
           />
           <SimpleButton text={'作ったサービス・教材'} href={'/products'} />
           <div className="flex justify-evenly">
-            <SnsButton src={'/github-logo.svg'} alt={'github'} />
-            <SnsButton src={'/zenn-logo.svg'} alt={'zenn'} />
-            <SnsButton src={'/x-logo.svg'} alt={'x'} />
+            <SnsButton
+              src={'/github-logo.svg'}
+              alt={'github'}
+              href={githubUrl}
+            />
+            <SnsButton src={'/zenn-logo.svg'} alt={'zenn'} href={zennUrl} />
+            <SnsButton src={'/x-logo.svg'} alt={'x'} href={xUrl} />
           </div>
           <CodeBlock path={props.snsButtonPath} code={props.snsButtonCode} />
         </div>
@@ -53,3 +57,7 @@ export const getStaticProps: GetStaticProps = () => {
     },
   }
 }
+
+const githubUrl = 'https://github.com/kou72'
+const zennUrl = 'https://zenn.dev/kou7273'
+const xUrl = 'https://twitter.com/kou7273'
