@@ -12,7 +12,7 @@ interface PropsType {
 
 export default function Works(props: PropsType) {
   return (
-    <div className="bg-blue-100 min-h-screen">
+    <div className="bg-slate-300 min-h-screen">
       <Header />
       <div className="flex flex-col justify-center items-center">
         <div className="flex justify-center text-4xl font-extrabold text-gray-700 py-12 w-full">
