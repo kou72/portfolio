@@ -6,14 +6,21 @@ import { Header } from '@/components/Header'
 import { ProductCard } from '@/components/ProductCard'
 import { CodeBlock } from '@/components/CodeBloc'
 
-const productsUrl = [
-  'https://meet-time.skapp.dev/',
-  'https://flash-pdf-card.web.app/',
+const productsData = [
+  {
+    url: 'https://meet-time.skapp.dev/',
+    tech: ['React', 'Next.js', 'GitHub Pages'],
+  },
+  {
+    url: 'https://flash-pdf-card.web.app/',
+    tech: ['Flutter', 'Firebase', 'Cloud Vision API'],
+  },
 ]
 
 interface PropsType {
   products: {
     url: string
+    tech: string[]
     ogTitle: string
     ogDescription: string
     ogImage: string
@@ -34,6 +41,7 @@ export default function Products(props: PropsType) {
           <div className="flex flex-col gap-4 w-80 mb-6" key={index}>
             <ProductCard
               url={product.url}
+              tech={product.tech}
               ogTitle={product.ogTitle}
               ogDescription={product.ogDescription}
               ogImage={product.ogImage}
@@ -53,10 +61,10 @@ export default function Products(props: PropsType) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const products = await Promise.all(
-    productsUrl.map(async (url) => {
-      const encodedUri = encodeURI(url)
-      const headers = { 'User-Agent': 'bot' }
-      const response = await axios.get(encodedUri, { headers })
+    productsData.map(async (product) => {
+      const url = product.url
+      const tech = product.tech
+      const response = await axios.get(url)
       const html = response.data
       const dom = new JSDOM(html)
       const ogTitle = dom.window.document
@@ -68,7 +76,7 @@ export const getStaticProps: GetStaticProps = async () => {
       const ogImage = dom.window.document
         .querySelector('meta[property="og:image"]')
         ?.getAttribute('content')
-      return { url, ogTitle, ogDescription, ogImage }
+      return { url, tech, ogTitle, ogDescription, ogImage }
     })
   )
   const productCardPath = 'components/ProductCard.tsx'
