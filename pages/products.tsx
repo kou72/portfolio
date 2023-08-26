@@ -13,7 +13,7 @@ const productsData = [
   },
   {
     url: 'https://flash-pdf-card.web.app/',
-    tech: ['Flutter', 'Firebase', 'Cloud Vision API'],
+    tech: ['Dart', 'Flutter', 'Firebase', 'Cloud Vision API'],
   },
 ]
 
