@@ -46,6 +46,7 @@ export default function Products(props: PropsType) {
               ogDescription={product.ogDescription}
               ogImage={product.ogImage}
             />
+            {/* コンポーネントをcode形式で表示、最初の一つだけ */}
             {index === 0 && (
               <CodeBlock
                 path={props.productCardPath}
@@ -59,6 +60,8 @@ export default function Products(props: PropsType) {
   )
 }
 
+// プロダクトのメタ情報（タイトル、概要、画像）をURLから取得
+// CodeBlockで表示するコンポーネントとコードを取得
 export const getStaticProps: GetStaticProps = async () => {
   const products = await Promise.all(
     productsData.map(async (product) => {
