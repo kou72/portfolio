@@ -21,6 +21,7 @@ export default function Works(props: PropsType) {
         {props.markdowns.map((markdown, index) => (
           <div className="flex flex-col gap-4 w-80 mb-6" key={index}>
             <WorkCard markdown={markdown} />
+            {/* コンポーネントをcode形式で表示、最初の一つだけ */}
             {index === 0 && (
               <CodeBlock path={props.workCardPath} code={props.workCardCode} />
             )}
@@ -31,6 +32,8 @@ export default function Works(props: PropsType) {
   )
 }
 
+// WorkCardで表示するmarkdownを取得
+// CodeBlockで表示するコンポーネントのパスとコードを取得
 export const getStaticProps: GetStaticProps = () => {
   const getMarkdownFiles = () => {
     const files = fs.readdirSync('contents/works')

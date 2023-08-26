@@ -45,7 +45,7 @@ export default function Home(props: PropsType) {
   )
 }
 
-CodeBlockで表示するコンポーネントのパスとコードを取得
+// CodeBlockで表示するコンポーネントのパスとコードを取得
 export const getStaticProps: GetStaticProps = () => {
   const simpleButtonPath = 'components/SimpleButton.tsx'
   const simpleButtonCode = fs.readFileSync(simpleButtonPath, 'utf8')
