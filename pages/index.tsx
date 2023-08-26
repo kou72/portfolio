@@ -11,7 +11,7 @@ interface PropsType {
   snsButtonPath: string
   snsButtonCode: string
 }
-// test
+
 export default function Home(props: PropsType) {
   return (
     <div className="bg-slate-300 min-h-screen">
