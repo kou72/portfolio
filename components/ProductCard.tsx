@@ -22,10 +22,10 @@ export const ProductCard = ({
       <img src={ogImage} alt={ogTitle} className="mb-2 rounded-t-3xl w-full" />
       <p className="text-2xl font-bold text-gray-700 mx-4">{ogTitle}</p>
       <p className="mx-4 mb-1">{ogDescription}</p>
-      <div className="mx-3">
+      <div className="flex flex-wrap mx-3 gap-2">
         {tech.map((item, index) => (
           <span
-            className="mr-2 px-2 py-0.5 text-sm bg-gray-200 rounded-lg"
+            className="mr-0.5 px-2 py-0.5 text-sm bg-gray-200 rounded-lg"
             key={index}
           >
             {item}
