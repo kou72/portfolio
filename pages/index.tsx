@@ -30,7 +30,7 @@ export default function Home(props: PropsType) {
           <div className="flex justify-evenly">
             <SnsButton src={'/github-logo.svg'} alt={'github'} />
             <SnsButton src={'/zenn-logo.svg'} alt={'zenn'} />
-            <SnsButton src={'/twitter-logo.svg'} alt={'twitter'} />
+            <SnsButton src={'/x-logo.svg'} alt={'x'} />
           </div>
           <CodeBlock path={props.snsButtonPath} code={props.snsButtonCode} />
         </div>
