@@ -17,7 +17,7 @@ export const ProductCard = ({
     <a
       href={url}
       target="_blank"
-      className="bg-white w-full rounded-3xl pb-4 hover:bg-gray-200 transition-colors duration-200"
+      className="bg-white w-full rounded-3xl pb-4 hover:opacity-80 transition-opacity duration-200"
     >
       <img src={ogImage} alt={ogTitle} className="mb-2 rounded-t-3xl w-full" />
       <p className="text-2xl font-bold text-gray-700 mx-4">{ogTitle}</p>
