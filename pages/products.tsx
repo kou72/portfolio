@@ -61,7 +61,7 @@ export default function Products(props: PropsType) {
 }
 
 // プロダクトのメタ情報（タイトル、概要、画像）をURLから取得
-// CodeBlockで表示するコンポーネントとコードを取得
+// CodeBlockで表示するコンポーネントのパスとコードを取得
 export const getStaticProps: GetStaticProps = async () => {
   const products = await Promise.all(
     productsData.map(async (product) => {
