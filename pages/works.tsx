@@ -20,15 +20,15 @@ export default function Works(props: PropsType) {
         </div>
         <div className="flex flex-col gap-4 w-80 mb-4">
           {props.markdowns.map((markdown, index) => (
-            <>
-              <WorkCard markdown={markdown} key={index} />
+            <div key={index}>
+              <WorkCard markdown={markdown} />
               {index === 0 && (
                 <CodeBlock
                   path={props.workCardPath}
                   code={props.workCardCode}
                 />
               )}
-            </>
+            </div>
           ))}
         </div>
       </div>
