@@ -8,6 +8,14 @@ import { CodeBlock } from '@/components/CodeBloc'
 
 const productsData = [
   {
+    url: 'https://chatgpt-poster.vercel.app/',
+    tech: ['React', 'Next.js', 'Vercel'],
+  },
+  {
+    url: 'https://github.com/kou72/ai-commit',
+    tech: ['javascript', 'npm'],
+  },
+  {
     url: 'https://meet-time.skapp.dev/',
     tech: ['React', 'Next.js', 'GitHub Pages'],
   },
